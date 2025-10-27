@@ -1,0 +1,21 @@
+{
+  "name": "articok-landing",
+  "version": "1.0.0",
+  "description": "A simple landing page for the Artičok restaurant in Split.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server ."
+  },
+  "keywords": [
+    "landing",
+    "page",
+    "restaurant",
+    "Artičok"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

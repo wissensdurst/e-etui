@@ -1,0 +1,174 @@
+/* Simple centered layout and Google-style review button */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* keep full-screen background on body, but position content at the bottom-center */
+body {
+  background: no-repeat center center / cover url("../img/articok_bg.png");
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end; /* place main at the bottom */
+  justify-content: center; /* center horizontally */
+  padding-bottom: 48px; /* space from the very bottom */
+}
+
+/* Main acts as the centered container but without its own background */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  width: min(680px, 92vw);
+  padding: 24px;
+  background: transparent; /* removed background as requested */
+  border-radius: 0; /* remove rounded card look if desired */
+  box-shadow: none; /* remove shadow so it's purely overlayed */
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 18px;
+  font-size: 1.4rem;
+}
+
+/* Sections */
+section {
+  margin: 16px 0;
+}
+
+/* Regular link */
+a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Google-style button */
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.08), 0 1px 3px rgba(60, 64, 67, 0.06);
+  color: #202124;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: box-shadow 0.12s ease, transform 0.08s ease;
+}
+
+.google-btn:hover {
+  box-shadow: 0 4px 18px rgba(60, 64, 67, 0.12);
+  transform: translateY(-1px);
+}
+
+.google-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.1);
+}
+
+/* Icon sizing */
+.google-btn .g-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Focus visible for keyboard users */
+.google-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15),
+    0 4px 18px rgba(60, 64, 67, 0.12);
+}
+
+/* Section spacing */
+.link-section {
+  width: 100%;
+}
+
+/* Primary site link */
+.site-link {
+  color: #000; /* black text */
+  background: transparent; /* remove background */
+  border: 1px solid rgba(0, 0, 0, 0.85); /* thin black border */
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-block;
+}
+
+/* Optional subtle hover/focus affordances */
+.site-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+.site-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Google badge link and responsive image */
+.google-badge img {
+  display: block;
+  width: 220px; /* natural badge width */
+  max-width: 70vw; /* shrink on very small screens */
+  height: auto;
+  margin: 0 auto;
+  border: 0;
+}
+
+/* Ensure links are keyboard-focus visible */
+a:focus {
+  outline: 3px solid rgba(26, 115, 232, 0.18);
+  outline-offset: 3px;
+}
+
+:root {
+  --cta-width: 320px; /* increased desktop width */
+  --cta-mobile-width: 200px; /* increased mobile width */
+  --cta-max-vw: 95vw;
+}
+
+/* Ensure Google badge and site link share the exact same width/behavior */
+.google-badge,
+.site-link {
+  width: var(--cta-width);
+  max-width: var(--cta-max-vw);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Make the badge image fill its parent width responsively */
+.google-badge img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+/* Mobile adjustments: smaller CTAs and reduced spacing */
+@media (max-width: 420px) {
+  .google-badge,
+  .site-link {
+    width: var(--cta-mobile-width);
+  }
+
+  main {
+    padding: 12px;
+    gap: 8px;
+  }
+}
